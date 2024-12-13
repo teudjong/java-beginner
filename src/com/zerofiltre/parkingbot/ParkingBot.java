@@ -1,4 +1,4 @@
-package com.zerofiltre.parkinfbot;
+package com.zerofiltre.parkingbot;
 
 public class ParkingBot {
 
@@ -14,6 +14,7 @@ public class ParkingBot {
      * Permet d'acceuillir et de presenter les services a l'utilisateur potentiel du parking
      * @param arg Represente le nom de l'utilisateur potentiel
      */
+
 
     private  static void  sayHello(String arg){
         String welcomeMessage = "Hello "+ arg + ", bienvenu au parking Zerofiltre";
