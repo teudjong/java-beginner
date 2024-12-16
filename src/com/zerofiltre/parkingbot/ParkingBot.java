@@ -1,6 +1,12 @@
 package com.zerofiltre.parkingbot;
 
+import com.zerofiltre.parkingbot.service.ParkingService;
+
 public class ParkingBot {
+
+
+    static String completion = "des equipes du parking Zerofiltre";
+    static ParkingService parkingService = new ParkingService();
 
     /**
      * ceci est la fonction principale d'un programme JAVA
@@ -8,6 +14,7 @@ public class ParkingBot {
      */
     public static void main(String[] args){
       sayHello(args[0]);
+      sayBaye();
     }
 
     /**
@@ -17,11 +24,19 @@ public class ParkingBot {
 
 
     private  static void  sayHello(String arg){
-        String welcomeMessage = "Hello "+ arg + ", bienvenu au parking Zerofiltre";
+        String welcomeMessage = "Hello "+ arg + ", bienvenue au parking Zerofiltre " + completion;
         String services = "Nous offrons les services suivants: Gardinage, laverie...";
         String warning = "Depechez-vous d'entrer car il n'y aura bientot plus de places!";
+        String parkService = parkingService.parking;
+        String washingService = parkingService.washing;
+
         System.out.println(welcomeMessage);
         System.out.println(services);
         System.out.println(warning.toUpperCase());
+        System.out.println("Nous proposons les services suivants: " + parkService + " ET " + washingService);
+    }
+
+    private static void  sayBaye(){
+        System.out.println("Recevez les aurevoirs " + completion);
     }
 }
