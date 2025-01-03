@@ -1,5 +1,7 @@
 package com.zerofiltre.parkingbot;
 
+import com.zerofiltre.parkingbot.model.Ticket;
+import com.zerofiltre.parkingbot.model.Vehicle;
 import com.zerofiltre.parkingbot.service.ParkingService;
 
 import java.security.SecureRandom;
@@ -14,13 +16,25 @@ public class ParkingBot {
 
 
     /**
+     * classe principale
      * ceci est la fonction principale d'un programme JAVA
+     * traitement d'un vehicule
      * @param args Represente tableaux des donnees passees en parametre lors du lancement du programme
      */
     public static void main(String[] args) {
-//        boucleFor();
+//      boucleFor();
         boucleWhile();
         sayBaye();
+        processVehicles();
+    }
+
+    private static void processVehicles() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setRegistrationNumber("LS-324-PM");
+        vehicle.setCategory("CITADINE");
+        ParkingService parkingService = new ParkingService();
+        Ticket ticket = parkingService.processIncomingVehicle(vehicle);
+        System.out.println(ticket);
     }
 
     private static void boucleFor() {

@@ -3,7 +3,7 @@ package com.zerofiltre.parkingbot.model;
 import java.util.Date;
 
 /**
- * les attributs
+ * la classe de donnees et ses attributs
  */
 public class Ticket {
     private String amount;
