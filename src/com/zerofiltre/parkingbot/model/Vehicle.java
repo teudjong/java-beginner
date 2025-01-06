@@ -22,7 +22,7 @@ public class Vehicle {
     }
 
     public String getCategory() {
-        return category;
+        return "VEHICLE";
     }
 
     public void setCategory(String category) {

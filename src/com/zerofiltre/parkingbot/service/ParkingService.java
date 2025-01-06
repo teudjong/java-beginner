@@ -18,7 +18,7 @@ public class ParkingService {
      * @param vehicle
      * @return ticket
      */
-    public Ticket processIncomingVehicle(Vehicle vehicle){
+    public static Ticket processIncomingVehicle(Vehicle vehicle){
         Ticket ticket = new Ticket();
         Date now = new Date();
         ticket.setEnteringTime(now);

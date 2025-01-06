@@ -54,11 +54,7 @@ public class Ticket {
      */
     @Override
     public String toString() {
-        return "Ticket{" +
-                "amount='" + amount + '\'' +
-                ", vehicle=" + vehicle +
-                ", enteringTime=" + enteringTime +
-                ", exitTime=" + exitTime +
-                '}';
+        return "Ticket d'un montant de: "+amount+ " $ pour vehicle de type "+ vehicle.getCategory() +
+                " entre a "+ enteringTime+ " et sorti a "+ exitTime;
     }
 }
