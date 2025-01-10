@@ -46,6 +46,11 @@ public class ParkingBot {
         Ticket carTicket = parkingService.processIncomingVehicle(car);
         System.out.println(carTicket);
 
+
+        System.out.println(parkingService.processExitingVehicule(vehicleTicket));
+        System.out.println(parkingService.processExitingVehicule(bicycleTicket));
+        System.out.println(parkingService.processExitingVehicule(carTicket));
+
     }
 
     private static void boucleFor() {

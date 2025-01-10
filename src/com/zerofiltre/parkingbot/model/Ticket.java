@@ -6,7 +6,7 @@ import java.util.Date;
  * la classe de donnees et ses attributs
  */
 public class Ticket {
-    private String amount;
+    private double amount;
     private Vehicle vehicle;
     private Date enteringTime;
     private Date exitTime;
@@ -16,11 +16,11 @@ public class Ticket {
      * les accesseurs pour chaque attributs
      * @return
      */
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
