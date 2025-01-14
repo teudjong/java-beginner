@@ -7,6 +7,7 @@ import com.zerofiltre.parkingbot.model.Vehicle;
 import com.zerofiltre.parkingbot.service.ParkingService;
 
 import java.security.SecureRandom;
+import java.util.*;
 
 public class ParkingBot {
 
@@ -31,26 +32,55 @@ public class ParkingBot {
     }
 
     private static void processVehicles() {
+
+        Set<Ticket> tickets = new HashSet<>();
+
         Vehicle vehicle = new Vehicle();
         vehicle.setRegistrationNumber("LS-458-4P");
         Ticket vehicleTicket = ParkingService.processIncomingVehicle(vehicle);
+        tickets.add(vehicleTicket);
         System.out.println(vehicleTicket);
 
         Vehicle bicycle = new Bicycle();
         bicycle.setRegistrationNumber("FO-526-PM");
         Ticket bicycleTicket = parkingService.processIncomingVehicle(bicycle);
+        tickets.add(bicycleTicket);
         System.out.println(bicycleTicket);
 
         Vehicle car = new Car();
         car.setRegistrationNumber("JDI-48-SOS");
         Ticket carTicket = parkingService.processIncomingVehicle(car);
+        tickets.add(carTicket);
         System.out.println(carTicket);
-
 
         System.out.println(parkingService.processExitingVehicule(vehicleTicket));
         System.out.println(parkingService.processExitingVehicule(bicycleTicket));
         System.out.println(parkingService.processExitingVehicule(carTicket));
 
+       /* Ticket[] tickets = new Ticket[3];
+        tickets[0] = vehicleTicket;
+        tickets[1] = bicycleTicket;
+        tickets[2] = carTicket;*/
+
+        System.out.println("Traitement des sorties par lot");
+
+        Map<Integer, Ticket> exitOrder = new HashMap<>();
+        int position = 0;
+
+        for (Ticket ticket : tickets){
+            exitOrder.put(position,ticket);
+            position++;
+            System.out.println(parkingService.processExitingVehicule(ticket));
+        }
+
+       /* for (Ticket ticket : tickets) {
+            System.out.println(parkingService.processExitingVehicule(ticket));
+        }*/
+
+        Set<Integer> keySet = exitOrder.keySet();
+        for (int key: keySet){
+            System.out.println("Position dans la liste : "+key + " : "+ exitOrder.get(key));
+        }
     }
 
     private static void boucleFor() {
