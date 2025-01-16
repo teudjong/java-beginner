@@ -26,11 +26,26 @@ public class ParkingBot {
      */
     public static void main(String[] args) {
 //      boucleFor();
-        boucleWhile();
-        sayBaye();
-        processVehicles();
+//        boucleWhile();
+//        sayBaye();
+       processVehicles();
+       /* int a = 10;
+        int b = a;
+        System.out.println("a =>"+ a);
+        System.out.println("b =>"+ b);
+        a = 15;
+        System.out.println("a =>"+ a);
+        System.out.println("b =>"+ b);
+        a = 0;
+        System.out.println("a =>"+ a);
+        System.out.println("b =>"+ b);*/
     }
 
+    /**
+     * initialisation d'une liste
+     * initialisation d'un Set
+     * ajout d'un elemnt dans une liste et un Set avec la methode Add
+     */
     private static void processVehicles() {
 
         Set<Ticket> tickets = new HashSet<>();
@@ -57,6 +72,10 @@ public class ParkingBot {
         System.out.println(parkingService.processExitingVehicule(bicycleTicket));
         System.out.println(parkingService.processExitingVehicule(carTicket));
 
+        /**
+         * initialisation d'un tableau
+         * ajout des elemments dans un tableau a des positions precises
+         */
        /* Ticket[] tickets = new Ticket[3];
         tickets[0] = vehicleTicket;
         tickets[1] = bicycleTicket;
@@ -64,6 +83,10 @@ public class ParkingBot {
 
         System.out.println("Traitement des sorties par lot");
 
+        /**
+         * initialisation d'une map pour pouvoir recuperer deux donnees(une donnee qui represente la cle:un Integer et un objet ticket)
+         * parcourir un tableau soit a partir d'une boucle ameliorer ou une boucle avec compteur
+         */
         Map<Integer, Ticket> exitOrder = new HashMap<>();
         int position = 0;
 
@@ -77,9 +100,12 @@ public class ParkingBot {
             System.out.println(parkingService.processExitingVehicule(ticket));
         }*/
 
+        /**
+         * comment parcourir une Map(recuperer ensemble des cles de la map , faire une boucle sur la Map, et on recupere element qui correspond a chaque cle avec le nom de la Map.gewt(key))
+         */
         Set<Integer> keySet = exitOrder.keySet();
         for (int key: keySet){
-            System.out.println("Position dans la liste : "+key + " : "+ exitOrder.get(key));
+            System.out.println("Position dans la liste : "+key + " : "+ exitOrder.get(key).getVehicle().getCategory());
         }
     }
 

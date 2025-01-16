@@ -44,7 +44,11 @@ public class ParkingService {
 
         long durationInMinutes = (ticket.getExitTime().getTime() - ticket.getEnteringTime().getTime()) / (60 * 1000);
 
-        double finalPrice = 0;
+        double finalPrice = switch (category) {
+            case CITADINE -> durationInMinutes * pricePerMinForCitadine;
+            case DEUXROUES -> durationInMinutes * pricePerMinFor2Roues;
+            default -> durationInMinutes * defaultPricePerMin;
+        };
         /*if("CITADINE".equals(category)) {
             finalPrice = durationInMinutes * pricePerMinForCitadine;
         } else if ("2 ROUES".equals(category)) {
@@ -52,18 +56,6 @@ public class ParkingService {
         }else {
             finalPrice = durationInMinutes * defaultPricePerMin;
         }*/
-
-        switch (category){
-            case CITADINE:
-                finalPrice = durationInMinutes * pricePerMinForCitadine;
-                break;
-            case DEUXROUES:
-                finalPrice = durationInMinutes * pricePerMinFor2Roues;
-                break;
-            default:
-                finalPrice = durationInMinutes * defaultPricePerMin;
-
-        }
 
 
         ticket.setAmount(finalPrice);
