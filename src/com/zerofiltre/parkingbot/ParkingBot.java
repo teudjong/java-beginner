@@ -52,8 +52,13 @@ public class ParkingBot {
 
         Vehicle vehicle = new Vehicle();
         vehicle.setRegistrationNumber("LS-458-4P");
-        Ticket vehicleTicket = ParkingService.processIncomingVehicle(vehicle);
+        Ticket vehicleTicket = parkingService.processIncomingVehicle(vehicle);
         tickets.add(vehicleTicket);
+
+        System.out.println(vehicleTicket);
+
+        parkingService.processExitingVehicule(vehicleTicket);
+
         System.out.println(vehicleTicket);
 
         Vehicle bicycle = new Bicycle();

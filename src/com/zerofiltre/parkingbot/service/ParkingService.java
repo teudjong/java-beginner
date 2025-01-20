@@ -1,8 +1,6 @@
 package com.zerofiltre.parkingbot.service;
 
-import com.zerofiltre.parkingbot.model.Ticket;
-import com.zerofiltre.parkingbot.model.Vehicle;
-import com.zerofiltre.parkingbot.model.VehicleModelEnum;
+import com.zerofiltre.parkingbot.model.*;
 
 import java.util.Date;
 
@@ -65,4 +63,30 @@ public class ParkingService {
 
     public String parking = "Parking et surveilllance de vehicules";
     public String washing = "Nettoyage de vehicules";
+
+    public Parking initParking(){
+        //Initialisation du parking Building
+        Parking building = new Parking();
+        building.setNumber(1);
+        //Initialisation des parking de type Floor
+        for (int i = 0; i < 50; i++){
+            Parking floor = new Parking();
+            floor.setType(ParkingTypeEnum.FLOOR);
+            floor.setNumber(i);
+            for (int j = 0; j < 30; j++) {
+                Parking hall = new Parking();
+                hall.setType(ParkingTypeEnum.HALL);
+                hall.setNumber(j);
+                floor.getSubParkings().add(hall);
+                for (int k = 0; k < 20; k++) {
+                    Parking spot = new Parking();
+                    spot.setType(ParkingTypeEnum.SPOT);
+
+
+                }
+            }
+            building.getSubParkings().add(floor);
+
+        }
+    }
 }
