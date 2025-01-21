@@ -1,13 +1,12 @@
 package com.zerofiltre.parkingbot;
 
-import com.zerofiltre.parkingbot.model.Bicycle;
-import com.zerofiltre.parkingbot.model.Car;
-import com.zerofiltre.parkingbot.model.Ticket;
-import com.zerofiltre.parkingbot.model.Vehicle;
+import com.zerofiltre.parkingbot.model.*;
 import com.zerofiltre.parkingbot.service.ParkingService;
 
 import java.security.SecureRandom;
 import java.util.*;
+
+import static com.zerofiltre.parkingbot.model.ParkingTypeEnum.SPOT;
 
 public class ParkingBot {
 
@@ -18,6 +17,8 @@ public class ParkingBot {
     static  int parkingSize = new SecureRandom().nextInt(10);
 
 
+
+
     /**
      * classe principale
      * ceci est la fonction principale d'un programme JAVA
@@ -25,6 +26,8 @@ public class ParkingBot {
      * @param args Represente tableaux des donnees passees en parametre lors du lancement du programme
      */
     public static void main(String[] args) {
+        Parking parking = parkingService.initParking();
+        listCars(parking);
 //      boucleFor();
 //        boucleWhile();
 //        sayBaye();
@@ -166,6 +169,21 @@ public class ParkingBot {
     }
 
     private static void  sayBaye(){
-        System.out.println("Recevez les aurevoirs " + completion);
+        System.out.println(" Recevez les aurevoirs " + completion);
     }
+
+    static void listCars(Parking parking){
+          if (SPOT.equals(parking.getType())){
+              Vehicle vehicle = parking.getVehicle();
+              System.out.println(" Vehicle d'immatriculation "
+              + vehicle.getRegistrationNumber()
+              + " situe a la place " + vehicle.getParkingSpotNumber());
+          }else{
+              List<Parking> subParkings = parking.getSubParkings();
+              for (Parking subParking: subParkings){
+                  listCars(subParking);
+              }
+          }
+    }
+
 }

@@ -1,12 +1,15 @@
 package com.zerofiltre.parkingbot.model;
 
-
 /**
  * la classe de donnee et ses attributs
  */
 public class Vehicle {
+
     private String registrationNumber;
+
     private String category;
+
+    private String parkingSpotNumber;
 
 
     /**
@@ -40,5 +43,13 @@ public class Vehicle {
                 "registrationNumber='" + registrationNumber + '\'' +
                 ", category='" + category + '\'' +
                 '}';
+    }
+
+    public String getParkingSpotNumber() {
+        return parkingSpotNumber;
+    }
+
+    public void setParkingSpotNumber(String parkingSpotNumber) {
+        this.parkingSpotNumber = parkingSpotNumber;
     }
 }

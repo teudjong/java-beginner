@@ -2,6 +2,7 @@ package com.zerofiltre.parkingbot.service;
 
 import com.zerofiltre.parkingbot.model.*;
 
+import java.security.SecureRandom;
 import java.util.Date;
 
 
@@ -9,6 +10,7 @@ import java.util.Date;
  * classe de logique : gere les entree des vehicle pour le moment
  */
 public class ParkingService {
+
 
     /**
      * Methode processIncomingVehicle qui retourne un ticket
@@ -73,20 +75,26 @@ public class ParkingService {
             Parking floor = new Parking();
             floor.setType(ParkingTypeEnum.FLOOR);
             floor.setNumber(i);
+        //initialisation des parking de type salle
             for (int j = 0; j < 30; j++) {
                 Parking hall = new Parking();
                 hall.setType(ParkingTypeEnum.HALL);
                 hall.setNumber(j);
                 floor.getSubParkings().add(hall);
+        //initialisation des places de stationnement
                 for (int k = 0; k < 20; k++) {
                     Parking spot = new Parking();
                     spot.setType(ParkingTypeEnum.SPOT);
-
-
+                    spot.setNumber(k);
+                    Vehicle vehicle = new Vehicle();
+                    vehicle.setRegistrationNumber(String.valueOf(new SecureRandom().nextInt(10000)));
+                    vehicle.setParkingSpotNumber("1- " + i + " - " + j + " - " + k);
+                    spot.setVehicle(vehicle);
+                    hall.getSubParkings().add(spot);
                 }
             }
             building.getSubParkings().add(floor);
-
         }
+        return building;
     }
 }
