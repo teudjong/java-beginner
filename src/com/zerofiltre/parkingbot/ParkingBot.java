@@ -76,6 +76,12 @@ public class ParkingBot {
         tickets.add(carTicket);
         System.out.println(carTicket);
 
+        System.out.println("Debut du Traitement des sorties en lot de " + tickets.size() + " vehicules");
+        for (int i = 0; i < tickets.size(); i++) {
+            System.out.println(ParkingService.processExitingVehicule(tickets.get(i + 1)));
+        }
+        System.out.println("Fin du traitement des sorties par lot");
+
         System.out.println(parkingService.processExitingVehicule(vehicleTicket));
         System.out.println(parkingService.processExitingVehicule(bicycleTicket));
         System.out.println(parkingService.processExitingVehicule(carTicket));
@@ -89,7 +95,6 @@ public class ParkingBot {
         tickets[1] = bicycleTicket;
         tickets[2] = carTicket;*/
 
-        System.out.println("Traitement des sorties par lot");
 
         /**
          * initialisation d'une map pour pouvoir recuperer deux donnees(une donnee qui represente la cle:un Integer et un objet ticket)

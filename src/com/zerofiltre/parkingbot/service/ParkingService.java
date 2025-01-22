@@ -28,7 +28,7 @@ public class ParkingService {
         return  ticket;
     }
 
-    public Ticket processExitingVehicule(Ticket ticket){
+    public static Ticket processExitingVehicule(Ticket ticket){
         long now = new  Date().getTime();
         now += 60 * 60 * 1000;
 
