@@ -51,7 +51,8 @@ public class ParkingBot {
      */
     private static void processVehicles() {
 
-        Set<Ticket> tickets = new HashSet<>();
+       // Set<Ticket> tickets = new HashSet<>();
+        List<Ticket> tickets =new ArrayList<>();
 
         Vehicle vehicle = new Vehicle();
         vehicle.setRegistrationNumber("LS-458-4P");
@@ -78,7 +79,12 @@ public class ParkingBot {
 
         System.out.println("Debut du Traitement des sorties en lot de " + tickets.size() + " vehicules");
         for (int i = 0; i < tickets.size(); i++) {
-            System.out.println(ParkingService.processExitingVehicule(tickets.get(i + 1)));
+            try {
+                System.out.println(ParkingService.processExitingVehicule(tickets.get(i + 1)));
+            } catch (Exception e) {
+                    System.out.println("Une erreur est survrnue lors de la sortie de 1 ou plusieurs" +
+                            "vehicules");
+            }
         }
         System.out.println("Fin du traitement des sorties par lot");
 
