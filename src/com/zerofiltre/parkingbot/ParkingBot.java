@@ -82,9 +82,10 @@ public class ParkingBot {
             try {
                 System.out.println(ParkingService.processExitingVehicule(tickets.get(i + 1)));
             } catch (Exception e) {
-                    System.out.println("Une erreur est survrnue lors de la sortie de 1 ou plusieurs" +
-                            "vehicules");
+                System.out.println("Une erreur est survenue lors de la sortie de 1 ou plusieurs" +
+                        "vehicules");
             }
+
         }
         System.out.println("Fin du traitement des sorties par lot");
 
