@@ -1,8 +1,9 @@
-package com.zerofiltre.parkingbot.service;
+package com.teudjong.parkingbot.service;
 
-import com.zerofiltre.parkingbot.model.*;
+import com.teudjong.parkingbot.model.*;
 
 import java.security.SecureRandom;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -96,5 +97,16 @@ public class ParkingService {
             building.getSubParkings().add(floor);
         }
         return building;
+    }
+
+    /**
+     *
+     * @param date
+     * @param dateDebut
+     * @param dateFin
+     * @return
+     */
+    public boolean estEntreDates(LocalDate date, LocalDate dateDebut, LocalDate dateFin) {
+        return (date.equals(dateDebut) || date.isBefore(dateDebut)) && (date.equals(dateFin) || date.isBefore(dateFin));
     }
 }

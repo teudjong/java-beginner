@@ -1,4 +1,4 @@
-package com.zerofiltre.parkingbot.model;
+package com.teudjong.parkingbot.model;
 
 /**
  * la classe de donnee et ses attributs

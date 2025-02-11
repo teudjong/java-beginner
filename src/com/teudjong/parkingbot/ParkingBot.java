@@ -1,22 +1,23 @@
-package com.zerofiltre.parkingbot;
+package com.teudjong.parkingbot;
 
-import com.zerofiltre.parkingbot.model.*;
-import com.zerofiltre.parkingbot.service.ParkingService;
+import com.teudjong.parkingbot.Util.Printer;
+import com.teudjong.parkingbot.model.*;
+import com.teudjong.parkingbot.service.ParkingService;
 
 import java.security.SecureRandom;
 import java.util.*;
 
-import static com.zerofiltre.parkingbot.model.ParkingTypeEnum.SPOT;
+import static com.teudjong.parkingbot.model.ParkingTypeEnum.SPOT;
 
 public class ParkingBot {
 
 
+    public static final String REGISTRATION_NUMBER = "LS-458-4P";
     static String completion = "des equipes du parking Zerofiltre";
     static ParkingService parkingService = new ParkingService();
     static String[] customers ={"Ebenezaire","Raissa","Chloe","Krishna","Kim","Serena","Ghislaine","Estelle","Merveille","Chanelle","Ines"};
     static  int parkingSize = new SecureRandom().nextInt(10);
-
-
+    static Printer printer;
 
 
     /**
@@ -26,12 +27,15 @@ public class ParkingBot {
      * @param args Represente tableaux des donnees passees en parametre lors du lancement du programme
      */
     public static void main(String[] args) {
-        Parking parking = parkingService.initParking();
-        listCars(parking);
+       printer = o -> System.out.println(o);
+
+        processVehicles();
+  //      Parking parking = parkingService.initParking();
+ //       listCars(parking);
 //      boucleFor();
 //        boucleWhile();
 //        sayBaye();
-       processVehicles();
+
        /* int a = 10;
         int b = a;
         System.out.println("a =>"+ a);
@@ -55,7 +59,7 @@ public class ParkingBot {
         List<Ticket> tickets =new ArrayList<>();
 
         Vehicle vehicle = new Vehicle();
-        vehicle.setRegistrationNumber("LS-458-4P");
+        vehicle.setRegistrationNumber(REGISTRATION_NUMBER);
         Ticket vehicleTicket = parkingService.processIncomingVehicle(vehicle);
         tickets.add(vehicleTicket);
 

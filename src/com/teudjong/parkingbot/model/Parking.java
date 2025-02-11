@@ -1,4 +1,4 @@
-package com.zerofiltre.parkingbot.model;
+package com.teudjong.parkingbot.model;
 
 import java.util.ArrayList;
 import java.util.List;
