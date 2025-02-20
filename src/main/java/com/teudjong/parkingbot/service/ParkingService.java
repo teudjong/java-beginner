@@ -11,6 +11,9 @@ import java.util.Date;
  * classe de logique : gere les entree des vehicle pour le moment
  */
 public class ParkingService {
+    public Ticket processIncommingVehicule(Vehicle vehicle) {
+        return null;
+    }
 
 
     /**
@@ -20,7 +23,7 @@ public class ParkingService {
      * @param vehicle
      * @return ticket
      */
-    public static Ticket processIncomingVehicle(Vehicle vehicle){
+   /* public static Ticket processIncomingVehicle(Vehicle vehicle){
         Ticket ticket = new Ticket();
         Date now = new Date();
         ticket.setEnteringTime(now);
@@ -50,13 +53,13 @@ public class ParkingService {
             case DEUXROUES -> durationInMinutes * pricePerMinFor2Roues;
             default -> durationInMinutes * defaultPricePerMin;
         };
-        /*if("CITADINE".equals(category)) {
+        *//*if("CITADINE".equals(category)) {
             finalPrice = durationInMinutes * pricePerMinForCitadine;
         } else if ("2 ROUES".equals(category)) {
             finalPrice = durationInMinutes * pricePerMinFor2Roues;
         }else {
             finalPrice = durationInMinutes * defaultPricePerMin;
-        }*/
+        }*//*
 
 
         ticket.setAmount(finalPrice);
@@ -99,14 +102,14 @@ public class ParkingService {
         return building;
     }
 
-    /**
+    *//**
      *
      * @param date
      * @param dateDebut
      * @param dateFin
      * @return
-     */
+     *//*
     public boolean estEntreDates(LocalDate date, LocalDate dateDebut, LocalDate dateFin) {
         return (date.equals(dateDebut) || date.isBefore(dateDebut)) && (date.equals(dateFin) || date.isBefore(dateFin));
-    }
+    }*/
 }

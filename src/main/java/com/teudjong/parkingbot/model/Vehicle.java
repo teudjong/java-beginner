@@ -20,7 +20,7 @@ public class Vehicle {
         return registrationNumber;
     }
 
-    public void setRegistrationNumber(String registrationNumber) {
+    public static void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 
