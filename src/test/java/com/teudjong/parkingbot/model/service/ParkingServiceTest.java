@@ -37,9 +37,11 @@ public class ParkingServiceTest {
         assertThat(registeredVehicle).isNotNull();
         String registeredRegistrationNumber = registeredVehicle.getRegistrationNumber();
         assertThat(registeredRegistrationNumber).isEqualsTo(REGISTRATION_NUMBER);
+
         Date date = ticket.getEnteringTime();
         assertThat(date).isNotNull();
-        Date nowPlus30Seconds = new Date(Now.getTime() + 30 * 1000);
+        Date nowPlus30Seconds = new Date(now.getTime() + 30*1000);
+        assertThat(date).isBeforeOrEqualTo(nowPlus30Seconds);
 
     }
 }
