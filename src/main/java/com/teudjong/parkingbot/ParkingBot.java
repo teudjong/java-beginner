@@ -60,12 +60,12 @@ public class ParkingBot {
 
         Vehicle vehicle = new Vehicle();
         vehicle.setRegistrationNumber(REGISTRATION_NUMBER);
-        Ticket vehicleTicket = parkingService.processIncomingVehicle(vehicle);
+        Ticket vehicleTicket = parkingService.processIncommingVehicule(vehicle);
         tickets.add(vehicleTicket);
 
         System.out.println(vehicleTicket);
 
-        parkingService.processExitingVehicule(vehicleTicket);
+        parkingService.pro
 
         System.out.println(vehicleTicket);
 

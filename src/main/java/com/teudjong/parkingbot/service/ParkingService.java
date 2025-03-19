@@ -12,18 +12,20 @@ import java.util.Date;
  */
 public class ParkingService {
     public Ticket processIncommingVehicule(Vehicle vehicle) {
-        return null;
+        Ticket ticket = new Ticket();
+        ticket.setVehicle(vehicle);
+        ticket.setEnteringTime(new Date());
+        return ticket;
     }
 
 
-    /**
-     * Methode processIncomingVehicle qui retourne un ticket
-     * creation de objet ticket et instanciation en utilisant un constructeur sans parametre
-     * date d'entree du ticket
-     * @param vehicle
-     * @return ticket
-     */
-   /* public static Ticket processIncomingVehicle(Vehicle vehicle){
+
+      //Methode processIncomingVehicle qui retourne un ticket
+      //creation de objet ticket et instanciation en utilisant un constructeur sans parametre
+      //date d'entree du ticket
+      //@param vehicle
+     // @return ticket
+    public static Ticket processIncomingVehicle(Vehicle vehicle){
         Ticket ticket = new Ticket();
         Date now = new Date();
         ticket.setEnteringTime(now);
@@ -53,13 +55,13 @@ public class ParkingService {
             case DEUXROUES -> durationInMinutes * pricePerMinFor2Roues;
             default -> durationInMinutes * defaultPricePerMin;
         };
-        *//*if("CITADINE".equals(category)) {
+        if("CITADINE".equals(category)) {
             finalPrice = durationInMinutes * pricePerMinForCitadine;
         } else if ("2 ROUES".equals(category)) {
             finalPrice = durationInMinutes * pricePerMinFor2Roues;
         }else {
             finalPrice = durationInMinutes * defaultPricePerMin;
-        }*//*
+        }
 
 
         ticket.setAmount(finalPrice);
@@ -102,14 +104,14 @@ public class ParkingService {
         return building;
     }
 
-    *//**
-     *
-     * @param date
-     * @param dateDebut
-     * @param dateFin
-     * @return
-     *//*
+
+
+     // @param date
+    //@param dateDebut
+     // @param dateFin
+     // @return
+
     public boolean estEntreDates(LocalDate date, LocalDate dateDebut, LocalDate dateFin) {
         return (date.equals(dateDebut) || date.isBefore(dateDebut)) && (date.equals(dateFin) || date.isBefore(dateFin));
-    }*/
+    }
 }
