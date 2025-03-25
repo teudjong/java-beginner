@@ -71,13 +71,13 @@ public class ParkingBot {
 
         Vehicle bicycle = new Bicycle();
         bicycle.setRegistrationNumber("FO-526-PM");
-        Ticket bicycleTicket = parkingService.processIncomingVehicle(bicycle);
+        Ticket bicycleTicket = ParkingService.processIncomingVehicle(bicycle);
         tickets.add(bicycleTicket);
         System.out.println(bicycleTicket);
 
         Vehicle car = new Car();
         car.setRegistrationNumber("JDI-48-SOS");
-        Ticket carTicket = parkingService.processIncomingVehicle(car);
+        Ticket carTicket = ParkingService.processIncomingVehicle(car);
         tickets.add(carTicket);
         System.out.println(carTicket);
 
@@ -93,9 +93,9 @@ public class ParkingBot {
         }
         System.out.println("Fin du traitement des sorties par lot");
 
-        System.out.println(parkingService.processExitingVehicule(vehicleTicket));
-        System.out.println(parkingService.processExitingVehicule(bicycleTicket));
-        System.out.println(parkingService.processExitingVehicule(carTicket));
+        System.out.println(ParkingService.processExitingVehicule(vehicleTicket));
+        System.out.println(ParkingService.processExitingVehicule(bicycleTicket));
+        System.out.println(ParkingService.processExitingVehicule(carTicket));
 
         /**
          * initialisation d'un tableau
@@ -117,7 +117,7 @@ public class ParkingBot {
         for (Ticket ticket : tickets){
             exitOrder.put(position,ticket);
             position++;
-            System.out.println(parkingService.processExitingVehicule(ticket));
+            System.out.println(ParkingService.processExitingVehicule(ticket));
         }
 
        /* for (Ticket ticket : tickets) {

@@ -39,7 +39,7 @@ public class ParkingServiceTest {
         Vehicle registeredVehicle = ticket.getVehicle();
         assertThat(registeredVehicle).isNotNull();
         String registeredRegistrationNumber = registeredVehicle.getRegistrationNumber();
-        assertThat(registeredRegistrationNumber).isEqualsTo(REGISTRATION_NUMBER);
+        assertThat(registeredRegistrationNumber).isEqualTo(REGISTRATION_NUMBER);
 
         //avec comme date d'entree la date actuelle a 30 secondes pres
         Date date = ticket.getEnteringTime();
