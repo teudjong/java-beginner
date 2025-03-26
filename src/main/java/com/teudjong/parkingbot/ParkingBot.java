@@ -7,7 +7,7 @@ import com.teudjong.parkingbot.service.ParkingService;
 import java.security.SecureRandom;
 import java.util.*;
 
-import static com.teudjong.parkingbot.model.ParkingTypeEnum.SPOT;
+import stkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmnmmmmmbatic com.teudjong.parkingbot.model.ParkingTypeEnum.SPOT;
 
 public class ParkingBot {
 
